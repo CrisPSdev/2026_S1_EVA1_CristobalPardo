@@ -26,7 +26,10 @@ public class Paciente {
     @NotNull(message = "El paciente debe tener edad.")
     private int edad;
 
-    @NotBlank(message = "El paciente debe tener ingresada una atención")
+    @NotNull(message = "La solicitud debe tener un número de atención.")
+    private int numAtencion;
+
+    @NotBlank(message = "La solicitud debe tener ingresada una atención")
     private String tipoAtencion;
 
     @NotBlank(message = "La solicitud debe tener un estado")
