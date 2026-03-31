@@ -53,12 +53,16 @@ public class PacienteRepository {
         return listaPaciente;
     }
 
-    public void eliminarPaciente (Paciente eliminar){
+    public Boolean eliminarPaciente (Paciente eliminar){
         Boolean valRun = buscarPorRun(eliminar.getNumRun(),eliminar.getDvRun());
         Boolean valAten = buscarPorAtencion(eliminar.getNumAtencion());
 
         if (valRun == true && valAten == true){
             listaPaciente.remove(eliminar);
+            return true;
+        }
+        else{
+            return false;
         }
     }
 
