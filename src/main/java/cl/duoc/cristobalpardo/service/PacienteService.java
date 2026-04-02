@@ -15,36 +15,28 @@ public class PacienteService {
     private PacienteRepository pacienteRepository;
 
     public Paciente agregarPaciente(Paciente nuevo){
-        Paciente val = pacienteRepository.nuevaSolicitud(nuevo);
-        if (val != null){
-            return val;
-        }
-        else{
-            return null;
-        }
-    }
+        return pacienteRepository.nuevaSolicitud(nuevo);
+     }
     
-    public Boolean buscarRut (int run, String dvrun){
-        Boolean val = pacienteRepository.buscarPorRun(run, dvrun);
-        return val;
+    public List<Paciente> buscarRut (int run, String dvrun){
+        return pacienteRepository.buscarPorRun(run, dvrun);
+        
     }
 
-    public Boolean buscarAten (int numAten){
-        Boolean val = pacienteRepository.buscarPorAtencion(numAten);
-        return val;
+    public Paciente buscarAten (int numAten){
+        return pacienteRepository.buscarPorAtencion(numAten);
     }
 
     public Boolean buscarTipoSolicitud (String tipoSolicitud){
-        Boolean val = pacienteRepository.buscarPorTipoSolicitud(tipoSolicitud);
-        return val;
+        return pacienteRepository.buscarPorTipoSolicitud(tipoSolicitud);
     }
 
     public List<Paciente> retornarLista (){
-        return pacienteRepository.listaPaciente;
+        return pacienteRepository.listaCompleta();
     }
 
-    public String eliminarPaciente (Paciente eliminar){
-        Boolean val = pacienteRepository.eliminarPaciente(eliminar);
+    public String eliminarPaciente (int numAtencion){
+        Boolean val = pacienteRepository.eliminarPaciente(numAtencion);
 
         if (val){
             return "Solicitud eliminada";
@@ -54,7 +46,7 @@ public class PacienteService {
         }
     }
 
-    public void actualizarPaciente (Paciente act){
-        pacienteRepository.actualizarPaciente(act);
+    public Paciente actualizarPaciente (Paciente act){
+        return pacienteRepository.actualizarPaciente(act);
     }
 }
