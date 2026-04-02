@@ -42,7 +42,7 @@ public class PacienteService {
             return "Solicitud eliminada";
         }
         else{
-            return "Solicitud no encontrada";
+            return null;
         }
     }
 
